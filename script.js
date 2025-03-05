@@ -350,3 +350,63 @@ function addBackToTopButton() {
         });
     });
 }
+
+// Email handling function
+function sendEmail(e) {
+    e.preventDefault();
+
+    // Get the form elements
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Get the button
+    const submitBtn = document.querySelector('.send-message-btn');
+    const originalText = submitBtn.innerHTML;
+
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.classList.remove('success', 'error');
+
+    // Send email using EmailJS
+    emailjs.send("service_ygovc0i", "template_i94xbal", {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message,
+    }).then(
+        function(response) {
+            // Success state
+            submitBtn.classList.add('success');
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('success');
+            }, 3000);
+        },
+        function(error) {
+            // Error state
+            submitBtn.classList.add('error');
+            submitBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to Send';
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('error');
+            }, 3000);
+            
+            console.error("Failed to send email:", error);
+        }
+    );
+
+    return false;
+}
