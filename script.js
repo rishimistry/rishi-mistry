@@ -246,6 +246,46 @@ function initCustomCursor() {
     });
 }
 
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (!menuBtn) return; // Exit if menu button doesn't exist
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent click from bubbling to document
+        navLinks.classList.toggle('active');
+        menuBtn.innerHTML = navLinks.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : 
+            '<i class="fas fa-bars"></i>';
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-content') && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+
+    // Close menu when scrolling
+    window.addEventListener('scroll', () => {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+}
+
 // Call this function when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     // Init TypeWriter
@@ -293,6 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addBackToTopButton();
     
     initCustomCursor();
+    initMobileMenu();
 });
 
 function handleScrollAnimations() {
