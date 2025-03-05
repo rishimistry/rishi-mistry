@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("JZk3zciY6j0UShnVQ");
+        })();
+    </script>
 </head>
 
 <body>
@@ -413,7 +419,7 @@ const <span class="variable">developer</span> = {
 
             <div class="contact-form">
                 <h3>Send Me a Message</h3>
-                <form id="contact-form" action="https://formsubmit.co/rishingppit@gmail.com" method="POST">
+                <form id="contact-form" onsubmit="return sendEmail(event)">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="John Doe" required>
