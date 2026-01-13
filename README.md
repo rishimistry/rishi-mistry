@@ -46,8 +46,6 @@ This website uses the following technologies:
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- **React / Next.js** (if applicable)
-- **Node.js**
 - **Vercel for Deployment**
 
 These make the design responsive and fast across devices. :contentReference[oaicite:3]{index=3}
