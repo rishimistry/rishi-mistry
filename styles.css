@@ -55,6 +55,10 @@
         letter-spacing: 1px;
     }
 
+   .logo a:hover{
+         color: var(--secondary color);
+   }
+
     .nav-links {
         display: flex;
         list-style: none;
