@@ -1,0 +1,21 @@
+{
+  "name": "rishi-mistry-portfolio",
+  "version": "1.0.0",
+  "description": "Rishi Mistry's Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "keywords": [
+    "portfolio",
+    "web",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Rishi Mistry",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
