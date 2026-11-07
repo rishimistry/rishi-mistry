@@ -2,7 +2,7 @@
 
 Welcome to the source code for my personal portfolio website — a digital space that showcases who I am, what I’ve built, and where I’m headed as a developer.
 
-🔗 **Live Demo:** https://rishi-mistry.vercel.app
+🔗 **Live Demo:** https://rishimistrty.in
 
 ---
 
